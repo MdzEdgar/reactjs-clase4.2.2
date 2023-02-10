@@ -19,7 +19,7 @@ const TaskCard = ({task, deleteTask, updateTask, setUpdatingTask, reset}) => {
       <p className={task.isCompleted ? "complete" : ""}>{task.description}</p>
       <h4>{task.isCompleted ? "Complete" : "In progress"}</h4>
       <div>
-        <input onChange={handleChangeCheckbox} defaultValue={task.isCompleted} type="checkbox" />
+        <input onChange={handleChangeCheckbox} checked={task.isCompleted} type="checkbox" />
       </div>
       <button onClick={() => deleteTask(task.id)}><i className='bx bxs-trash'></i></button>
       <button onClick={handleClickEdit}><i className='bx bx-edit'></i></button>
