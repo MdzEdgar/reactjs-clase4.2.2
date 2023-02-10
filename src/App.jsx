@@ -41,6 +41,12 @@ function App() {
     .catch((err) => console.log(err))
   }
 
+  const updateStatusTask = (id, data) => {
+    axios.patch(`${BASE_URL}todos/${id}/`, data)
+    .then(() => getAllTasks())
+    .catch((err) => console.log(err))
+  }
+
   useEffect(() => {
     getAllTasks()
   }, [])
@@ -62,7 +68,7 @@ function App() {
       </form>
 
       <section>
-        {tasks.map((task) => <TaskCard key={task.id} task={task} deleteTask={deleteTask} />)}
+        {tasks.map((task) => <TaskCard key={task.id} task={task} deleteTask={deleteTask} updateStatusTask={updateStatusTask} />)}
       </section>
     </div>
   );
